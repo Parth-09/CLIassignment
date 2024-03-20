@@ -2,6 +2,8 @@ require_relative "task_manager"
 require 'date'
 
 class Manager
+  attr_accessor :tasks
+
   def initialize
     @tasks = []
   end
@@ -17,7 +19,6 @@ class Manager
   
       puts "Task cannot be blank. Please enter a valid task."
     end
-  
     task
   end
   
@@ -36,7 +37,6 @@ class Manager
         puts "Invalid date format. Please enter the deadline in the correct format."
       end
     end
-
     deadline_input
   end
 
@@ -48,9 +48,11 @@ class Manager
     @tasks << TaskManager.new(task, deadline.strftime('%Y-%m-%d %I:%M %p'))
   end
 
+
+
   # prints the list of tasks
   def list_tasks
-
+    
     if @tasks.empty?
       print "\n"
       puts "No tasks added yet."

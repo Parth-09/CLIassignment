@@ -7,6 +7,6 @@ class TaskManager
   end
 
   def to_s
-    "#{@task} to be done by #{@deadline}"
+    "#{@task.downcase.capitalize} to be done by #{@deadline}"
   end
 end
